@@ -1,1 +1,5 @@
 @import "tailwindcss";
+:root {
+  --footer-height: 384px;
+  --site-font:'Century Gothic';
+}
