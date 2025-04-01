@@ -1,9 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-}
+/* 
+* Header component
+*/
 #header{
     position: sticky;
     top: 0;
@@ -30,14 +27,20 @@
 #header a:hover:before{
     transform: scaleX(1.01);
 }
+
+/* 
+* Paragraph component
+*/
 p{
     font-size: 14px
 }
 
+/* 
+* Search component
+*/
 #search{
     margin-right: 20px;
     padding: 10px;
-
 }
 #search div input{
     padding: 5px;
@@ -45,13 +48,15 @@ p{
 #search input{
     margin-right: 10px;
     border: 1px solid #C40D2E;
-    
 }
 #search input::placeholder{
     color: #C40D2E;
     margin-left: 5px;
 }
 
+/* 
+* Sidebar component
+*/
 #sidebar{
     margin-left: 34px;
 }

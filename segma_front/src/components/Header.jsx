@@ -16,9 +16,29 @@ function Header(props) {
       <div id='header' className="col-span-8 h-15 bg-[#FFFFFF] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] flex justify-between items-center">
         {/*//? sidebar & language */}
         <div id="sidebar" className="flex items-center gap-4">
-          <button id="sidebar-button" className="text-[#C40D2E] text-xl" onClick={toggleSidebar}>
-            <FontAwesomeIcon className="w-6 h-6" icon={isSidebarOpen ? faTimes : faBars} />
-          </button>
+        <motion.button
+  id="sidebar-button"
+  className="text-[#C40D2E] text-xl"
+  onClick={toggleSidebar}
+  initial={{ opacity: 0 }} // Start with opacity 0
+  animate={{ opacity: 1 }} // Animate to opacity 1
+  exit={{ opacity: 0 }} // When sidebar closes, opacity will go back to 0
+  transition={{ duration: 0.3 }}
+>
+  <motion.div
+    animate={{
+      rotate: isSidebarOpen ? 180 : 0, // Rotate the button when the sidebar opens/closes
+      scale: isSidebarOpen ? 1.2 : 1, // Slightly scale the button when open
+    }}
+    transition={{ duration: 0.3 }}
+  >
+    <FontAwesomeIcon
+      className="w-6 h-6"
+      icon={isSidebarOpen ? faTimes : faBars}
+    />
+  </motion.div>
+</motion.button>
+
           <button className="text-[#C40D2E] text-xl"><FontAwesomeIcon icon={faLanguage} /></button>
         </div>
 
