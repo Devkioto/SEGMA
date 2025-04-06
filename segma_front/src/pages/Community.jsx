@@ -1,16 +1,31 @@
 import React from "react";
 import Layout from "../components/Layout";
 import img_community from "../assets/images/community_show.png";
+import watchG from "../assets/images/watch_g.png";
+import watchG2 from "../assets/images/watch_g1.png";
+import watchG3 from "../assets/images/watch_g2.png";
+import pers from "../assets/images/pers.png";
+import pers2 from "../assets/images/pers1.png";
+import pers3 from "../assets/images/pers2.png";
+import {
+  faClock,
+  faCrown,
+  faNewspaper,
+  faTools,
+} from "@fortawesome/free-solid-svg-icons";
+import Forum_Card from "../components/Forum_Card";
+import Community_Section from "../components/Community_Section";
+import Galerie_Card from "../components/Galerie_Card";
 const Community = () => {
   return (
     <Layout>
       <div className="h-[1934px] flex flex-col items-center gap-4">
         <div className="h-[564px] w-full flex justify-center items-center relative">
           <div className="w-[831px] flex flex-col items-center  z-10 justify-between gap-4">
-            <h1 className="w-[767px] text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight ">
+            <h1 className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight ">
               La Passion de l'Horlogerie
             </h1>
-            <span className="w-[720px] text-[#D1D5DB] text-[20px] text-warp text-center align-middle">
+            <span className="md:w-[720px] text-[#D1D5DB] text-[20px] text-wrap text-center align-middle">
               Rejoignez notre communauté passionnée de collectionneurs et
               d'amateurs de montres
             </span>
@@ -21,15 +36,69 @@ const Community = () => {
             </button>
           </div>
           <div className="absolute inset-0">
-            <img className="brightness-50" src={img_community} alt="" />
+            <img
+              className="h-full w-full object-cover brightness-50"
+              src={img_community}
+              alt=""
+            />
           </div>
         </div>
-        <div className="h-[312px] w-[1280px] flex flex-col gap-4 items-center ">
-            <div>form_Title</div>
-            <div>forums</div>
-        </div>
-        <div>galerie</div>
-        <div>events</div>
+        <Community_Section
+          sectionTitle="Forums Populaires"
+          sectionDescription=" Découvrez nos discussions les plus actives">
+          <Forum_Card
+            icon={faCrown}
+            title="Montres de Luxe"
+            description="3,456 discussions"
+          />
+          <Forum_Card
+            icon={faClock}
+            title="Montres de Vintage"
+            description="2,789 discussions"
+          />
+          <Forum_Card
+            icon={faTools}
+            title="Questions Techniques"
+            description="1,923 discussions"
+          />
+
+          <Forum_Card
+            icon={faNewspaper}
+            title="nouveautes"
+            description="4,127 discussions"
+          />
+        </Community_Section>
+        <Community_Section
+          sectionTitle="Galerie des Membres"
+          sectionDescription="Découvrez les collections de nos membres">
+          <Galerie_Card
+            watchImg={watchG}
+            ownerImg={pers}
+            title="Rolex Submariner"
+            ownerName="Jean Dupont"
+            numLikes={234}
+            numComments={45}
+          />
+           <Galerie_Card
+            watchImg={watchG2}
+            ownerImg={pers2}
+            title="Omega Speedmaster"
+            ownerName="Marie Laurent"
+            numLikes={189}
+            numComments={32}
+          />
+           <Galerie_Card
+            watchImg={watchG3}
+            ownerImg={pers3}
+            title="Patek Philippe"
+            ownerName="Pierre Martin"
+            numLikes={312}
+            numComments={67}
+          />
+        </Community_Section>
+        <Community_Section
+          sectionTitle="Evénements à Venir"
+          sectionDescription="Ne manquez aucun rendez-vous de l'horlogerie"></Community_Section>
       </div>
     </Layout>
   );
