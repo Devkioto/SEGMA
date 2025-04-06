@@ -1,15 +1,23 @@
-
+/* 
+* Header component
+*/
 #header{
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
+    width: 100%;
 }
+
 #header a{
     text-decoration: none;
 }
 #header a{
     position: relative;
 }
+#header p{
+    user-select: none;
+}
+
 #header a:before{
     content: '';
     position: absolute;
@@ -20,8 +28,9 @@
     background-color: currentColor;
     transition: transform 0.3s ease-out;
     transform: scaleX(0);
-    transform-origin: 0% 50%;
+    transform-origin: 50% 0%;
 }
+
 #header a:hover:before{
     transform: scaleX(1.01);
 }
@@ -29,10 +38,12 @@
     font-size: 14px
 }
 
+/* 
+* Search component
+*/
 #search{
     margin-right: 20px;
     padding: 10px;
-
 }
 #search div input{
     padding: 5px;
@@ -40,13 +51,15 @@
 #search input{
     margin-right: 10px;
     border: 1px solid #C40D2E;
-    
 }
 #search input::placeholder{
     color: #C40D2E;
     margin-left: 5px;
 }
 
+/* 
+* Sidebar component
+*/
 #sidebar{
     margin-left: 34px;
 }
