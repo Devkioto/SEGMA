@@ -2,10 +2,12 @@
 * Header component
 */
 #header{
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
+    width: 100%;
 }
+
 #header a{
     text-decoration: none;
 }
