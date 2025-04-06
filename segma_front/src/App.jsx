@@ -1,8 +1,11 @@
 import "./App.css";
-import Layout from "./components/Layout";
+import Home from "./pages/Home";
 import Community from "./pages/Community";
+
 function App() {
-  return <Community />;
+  return (
+    <Home />
+  );
 }
 
 export default App;

@@ -45,7 +45,7 @@ function Header(props) {
         id="header"
         className="col-span-8 h-15 bg-[#FFFFFF] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] flex justify-between items-center fixed w-full top-0 z-50 px-4"
         animate={{ y: showNavbar ? 0 : -100 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
       >
         {/* Sidebar & Language */}
         <div id="sidebar" className="flex items-center gap-4">
