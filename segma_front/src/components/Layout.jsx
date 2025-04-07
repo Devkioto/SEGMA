@@ -4,9 +4,9 @@ import Footer from "./Footer";
 
 function Layout({ children }) {
   return (
-    <div className="grid grid-cols-1 grid-rows-[auto_1fr_auto] font-(family-name:--site-font)">
+    <div className="grid grid-cols-1 grid-rows-[auto_1fr_auto] font-family-['--site-font']">
       <Header />
-      <main className="overflow-auto">{children}</main>
+      <main className="">{children}</main>
       <Footer />
     </div>
   );

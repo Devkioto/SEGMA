@@ -1,5 +1,25 @@
-@import "tailwindcss";
+@import "tailwindcss"; /* If necessary, otherwise omit it */
+
+/* Custom CSS variables */
 :root {
   --footer-height: 384px;
-  --site-font:'Century Gothic';
+  --site-font: 'Century Gothic', sans-serif; /* Ensure to include fallback fonts */
+}
+
+/* Hides the scrollbar */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* General body styling */
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--site-font); /* Apply the custom font globally */
+}
+
+/* Example for using footer height in Tailwind */
+.footer {
+  height: var(--footer-height); /* Using the custom variable for footer height */
 }
