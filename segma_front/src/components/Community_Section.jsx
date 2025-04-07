@@ -3,8 +3,7 @@ import React from "react";
 const Community_Section = ({ sectionTitle, sectionDescription, children }) => {
   return (
     <div
-      className="min-h-[312px] w-6/7
-    flex flex-col gap-4 items-center ">
+      className="min-h-[312px] w-6/7 flex flex-col gap-4 items-center my-4">
       <div className="min-h-[84px] w-6/7 flex flex-col items-center">
         <h2 className="text-[36px] font-semibold text-[#CD402E] text-center">
           {sectionTitle}
