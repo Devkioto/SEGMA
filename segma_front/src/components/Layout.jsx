@@ -7,7 +7,7 @@ function Layout({ children }) {
     <div className="grid grid-cols-1 grid-rows-[auto_1fr_auto] font-family-['--site-font']">
       <Header />
       <main className="">{children}</main>
-      <Footer />
+      <Footer />   
     </div>
   );
 }
