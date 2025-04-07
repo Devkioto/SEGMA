@@ -16,13 +16,14 @@ import {
 import Forum_Card from "../components/Forum_Card";
 import Community_Section from "../components/Community_Section";
 import Galerie_Card from "../components/Galerie_Card";
+import Event_Card from "../components/Event_Card";
 const Community = () => {
   return (
     <Layout>
-      <div className="h-[1934px] flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4">
         <div className="h-[564px] w-full flex justify-center items-center relative">
           <div className="w-[831px] flex flex-col items-center  z-10 justify-between gap-4">
-            <h1 className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight ">
+            <h1 className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight leading-[1.2]"> 
               La Passion de l'Horlogerie
             </h1>
             <span className="md:w-[720px] text-[#D1D5DB] text-[20px] text-wrap text-center align-middle">
@@ -79,7 +80,7 @@ const Community = () => {
             numLikes={234}
             numComments={45}
           />
-           <Galerie_Card
+          <Galerie_Card
             watchImg={watchG2}
             ownerImg={pers2}
             title="Omega Speedmaster"
@@ -87,7 +88,7 @@ const Community = () => {
             numLikes={189}
             numComments={32}
           />
-           <Galerie_Card
+          <Galerie_Card
             watchImg={watchG3}
             ownerImg={pers3}
             title="Patek Philippe"
@@ -98,7 +99,26 @@ const Community = () => {
         </Community_Section>
         <Community_Section
           sectionTitle="Evénements à Venir"
-          sectionDescription="Ne manquez aucun rendez-vous de l'horlogerie"></Community_Section>
+          sectionDescription="Ne manquez aucun rendez-vous de l'horlogerie">
+          <Event_Card
+            date="5 AOÛT"
+            place="Lyon, France"
+            title="Atelier de Restauration"
+            description="Apprenez les techniques de restauration des montres vintage"
+          />
+          <Event_Card
+            date="15 juil"
+            place="Genève, Suisse"
+            title=" Watches & Wonders"
+            description="Découvrez les dernières innovations de l'industrie horlogère"
+          />
+          <Event_Card
+            date="23 JUIN"
+            place="Paris, France"
+            title="Salon International de l'Horlogerie"
+            description="Le plus grand rassemblement d'amateurs de montres en France"
+          />
+        </Community_Section>
       </div>
     </Layout>
   );
