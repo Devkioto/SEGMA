@@ -29,6 +29,8 @@ function Home(props) {
         const horizontal = document.getElementById('horizontal');
         horizontal.style.width = `${100 * contents.length}vw`; // width should be 100vw * number of content items
 
+
+
         // Horizontal scrolling animation
         gsap.to(contents, {
             xPercent: -100 * (contents.length - 1), // Move content horizontally
@@ -52,16 +54,25 @@ function Home(props) {
 
     return (
         <Layout>
-            <div className="h-[600vh]">
-                <div className="bg-[#1765ff] h-[100vh]">section 1</div>
-                <div className="bg-[#ff1717] h-[100vh]">section 2</div>
-                <div className="bg-[#00ff00] h-[100vh]">section 3</div>
-                <div id="horizontal">
-                    <div className="content"><p>Content 1</p></div>
-                    <div className="content"><p>Content 2</p></div>
-                    <div className="content"><p>Content 3</p></div>
-                </div>
+            <>
+            <div id="container__horizontal ">
+                <div className="bg-[#1765ff] h-[100vh] section">section 1</div>
+                <div className="bg-[#ff1717] h-[100vh] section">section 2</div>
+                <div className="bg-[#00ff00] h-[100vh] section">section 3</div>
+                        
+                        <section id="horizontal" className='section'>
+                    	    <div className="content"><p>Content 1</p></div>
+                    	    <div className="content"><p>Content 2</p></div>
+                    	    <div className="content"><p>Content 3</p></div>
+                    	</section>
             </div>
+            <section className='h-[100vh] w-full bg-[#FACC15]'>
+                <h1>Home</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ex praesentium maxime eligendi reprehenderit ea. Ea nihil ipsa molestiae quam doloribus placeat distinctio optio sint ducimus magni nesciunt, quos eum?</p>
+            </section>
+            
+                     
+            </>
         </Layout>
     );
 }
