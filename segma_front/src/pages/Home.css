@@ -1,0 +1,31 @@
+#horizontal {
+    display: flex;
+    overflow-x: hidden; /* Hide horizontal overflow */
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hide the default scrollbar */
+}
+
+.content {
+    width: 100vw; /* Take full viewport width */
+    height: 100vh; /* Take full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.content:nth-child(1) {
+    background-color: rgb(243, 102, 102);
+}
+
+.content:nth-child(2) {
+    background-color: rgb(69, 240, 174);
+}
+
+.content:nth-child(3) {
+    background-color: rgb(228, 255, 73);
+}
