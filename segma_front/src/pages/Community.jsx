@@ -57,9 +57,14 @@ const Community = () => {
               d'amateurs de montres
             </motion.span>
             <button
+<<<<<<< HEAD
               className="w-[287px] h-[62px] bg-black cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
               type="button"
             >
+=======
+              className="w-[287px] h-[62px] mt-8 bg-[rgba(0,0,0,0.6)] cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
+              type="button">
+>>>>>>> 7d9866ae19b1c2cd6301e8ba8399c9dcd9d8b1c2
               Rejoindre la communauté
             </button>
           </div>

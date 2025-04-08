@@ -3,12 +3,17 @@ import { motion } from "framer-motion";
 
 const Community_Section = ({ sectionTitle, sectionDescription, children }) => {
   return (
+<<<<<<< HEAD
     <motion.div
       className="min-h-[312px] w-6/7 flex flex-col gap-4 items-center my-4"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
+=======
+    <div
+      className="min-h-[312px] w-6/7 flex flex-col gap-4 items-center justify-around my-4">
+>>>>>>> 7d9866ae19b1c2cd6301e8ba8399c9dcd9d8b1c2
       <div className="min-h-[84px] w-6/7 flex flex-col items-center">
         <h2 className="text-[36px] font-semibold text-[#CD402E] text-center">
           {sectionTitle}
