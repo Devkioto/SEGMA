@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
 const container = {
@@ -23,11 +23,12 @@ const container = {
 function Footer() {
   return (
     <motion.div
-      className="h-[500px] md:h-[500px] col-span-8 row-start-5 flex flex-col px-[32px] bg-[#E5E7EB] text-[#C40D2E] font-site-font items-center justify-center" // Changed font and height
+      className="h-[400px]  pl-[92px] pr-[92px] md:h-[370px] col-span-8 row-start-5 flex flex-col px-[32px] bg-[#E5E7EB] text-[#C40D2E] font-site-font items-center justify-center" // Changed font and height
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}
       variants={container}
+      
     >
       <div className="h-full md:h-[224px] flex flex-wrap md:flex-nowrap w-full gap-4 items-center">
         <motion.div className="w-full md:w-1/3 grid grid-rows-auto gap-4" variants={fadeUp}>
@@ -100,7 +101,7 @@ function Footer() {
 
       {/* Copyright */}
       <motion.div
-        className="h-[57px] z-100  text-[#8E1128] font-medium w-full flex items-center justify-center border-t-2 border-gray-300"
+        className="h-[50px] z-100  text-[#8E1128] font-medium w-full flex items-center justify-center border-t-2 border-gray-300"
       >
         ©2024 Segma, Inc. All rights reserved.
       </motion.div>

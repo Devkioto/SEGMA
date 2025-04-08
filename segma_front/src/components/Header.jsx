@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faTimes,
-  faGlobe,
   faSearch,
   faShoppingCart,
   faUser,
@@ -13,50 +12,87 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../components/Header.css";
 import segma_logo from "../assets/images/segma_logo.png";
 
-function Header(props) {
+function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const lastScrollY = useRef(0);
+  const sidebarRef = useRef(null);
+  const scrollTimeout = useRef(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Close sidebar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    if (isSidebarOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'hidden'; // Disable scrolling
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'auto'; // Ensure scrolling is re-enabled
+    };
+  }, [isSidebarOpen]);
+
+  // Handle navbar visibility on scroll and hide after inactivity
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-        setShowNavbar(false); // Scroll Down → Hide navbar
-      } else {
-        setShowNavbar(true); // Scroll Up → Show navbar
+      // Reset the timer if user scrolls
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        setShowNavbar(false); // Hide navbar when scrolling down
+      } else {
+        setShowNavbar(true); // Show navbar when scrolling up
+      }
+
+      // Set a timeout to hide the navbar after 3 seconds of inactivity
+      scrollTimeout.current = setTimeout(() => {
+        setShowNavbar(false);
+      }, 5000); // Hide after 3 seconds of no scroll
 
       lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current); // Cleanup the timeout on unmount
+      }
+    };
   }, []);
 
   return (
     <>
+      {/*//! Header */}
       <motion.div
         id="header"
-        className="col-span-8 h-15 bg-[#FFFFFF] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] flex justify-between items-center fixed w-full top-0 z-50 px-4"
+        className="h-14 bg-white shadow-md fixed w-full top-0 z-50 px-5 flex items-center justify-between"
         animate={{ y: showNavbar ? 0 : -100 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Sidebar & Language */}
-        <div id="sidebar" className="flex items-center gap-4">
+        {/* Left Side */}
+        <div className="flex items-center gap-4 mr-2 ">
           <motion.button
-            id="sidebar-button"
             className="text-[#C40D2E] text-xl cursor-pointer"
             onClick={toggleSidebar}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
           >
             <motion.div
               animate={{
@@ -67,7 +103,7 @@ function Header(props) {
             >
               <FontAwesomeIcon
                 className="w-6 h-6"
-                icon={isSidebarOpen ? faTimes : faBars}
+                icon={isSidebarOpen ? "" : faBars}
               />
             </motion.div>
           </motion.button>
@@ -77,42 +113,22 @@ function Header(props) {
           </button>
         </div>
 
-        {/* Navigation */}
-        <ul className="hidden items-center md:flex gap-6 text-[#C40D2E] text-sm font-semibold">
-          <li>
-            <a href="#" className="hover:underline">
-              <p>About Us</p>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              <p>Catalogue</p>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="cursor-pointer">
-              <img className="h-8" src={segma_logo} alt="Logo" />
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              <p>Auctions</p>
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              <p>Community</p>
-            </a>
-          </li>
+        {/* Center Nav */}
+        <ul className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex gap-6 text-[#C40D2E] text-sm font-semibold items-center">
+          <li><a href="#" className="hover:underline">About Us</a></li>
+          <li><a href="#" className="hover:underline">Catalogue</a></li>
+          <li><a href="#"><img className="h-8" src={segma_logo} alt="Logo" /></a></li>
+          <li><a href="#" className="hover:underline">Auctions</a></li>
+          <li><a href="#" className="hover:underline">Community</a></li>
         </ul>
 
-        {/* Search & Icons */}
-        <div className="flex items-center gap-4" id="search">
-          <div className="relative w-full md:w-40 select-none">
+        {/* Right Side */}
+        <div className="flex items-center gap-4 pr-4">
+          <div className="relative w-full md:w-40">
             <input
               type="text"
               placeholder="Search..."
-              className="border rounded-full w-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#C40D2E] pr-10"
+              className="border rounded-full w-full px-4 py-2 text-sm border-[#C40D2E] focus:outline-none focus:ring-2 focus:ring-[#C40D2E] pr-10"
             />
             <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#C40D2E] cursor-pointer">
               <FontAwesomeIcon icon={faSearch} />
@@ -127,53 +143,83 @@ function Header(props) {
         </div>
       </motion.div>
 
-      {/* Sidebar */}
+      {/*//! Overlay & Sidebar */}
       <AnimatePresence>
         {isSidebarOpen && (
-          <motion.aside
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.3 }}
-            className="w-full p-6 sm:w-60 dark:bg-gray-50 dark:text-gray-800 fixed z-50 top-15"
-          >
-            <nav className="space-y-8 text-sm">
-              <div className="space-y-2">
-                <h2 className="text-sm font-semibold tracking-widest uppercase dark:text-gray-600">
-                  <p>Getting Started</p>
-                </h2>
-                <div className="flex flex-col space-y-1">
-                  {["Installation", "Plugins", "Migrations", "Appearance", "Mamba UI"].map((item, i) => (
+          <>
+            {/* Dark Overlay */}
+            <motion.div
+              style={{
+                backgroundColor: "#00000054",
+                bottom: "-69.5781px",
+                boxSizing: "border-box",
+                left: "0px",
+                position: "fixed",
+                right: "0px",
+                top: "60px",
+                transition: "opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1), height, visibility, z-index",
+                userSelect: "none",
+                zIndex: 960
+              }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            {/* Sidebar */}
+            <motion.aside
+              ref={sidebarRef}
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.3 }}
+              className="w-full h-screen sm:w-85 bg-white fixed z-960 top-14 p-6 shadow-md"
+            >
+              <div className="flex justify-end">
+                <button
+                  onClick={toggleSidebar}
+                  className="text-[#C40D2E] text-2xl cursor-pointer"
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
+              </div>
+              <nav className="space-y-8 text-sm">
+                <div className="space-y-2">
+                  <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600">
+                    Getting Started
+                  </h2>
+                  <div className="flex flex-col space-y-1">
+                    {["Installation", "Plugins", "Migrations", "Appearance", "Mamba UI"].map((item, i) => (
+                      <motion.a
+                        key={item}
+                        href="#"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}
+                      >
+                        {item}
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600">
+                    Dashboard
+                  </h2>
+                  <div className="flex flex-col space-y-1">
                     <motion.a
-                      key={item}
                       href="#"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
                     >
-                      <p>{item}</p>
+                      Header
                     </motion.a>
-                  ))}
+                  </div>
                 </div>
-              </div>
-
-              <div className="space-y-2">
-                <h2 className="text-sm font-semibold tracking-widest uppercase dark:text-gray-600">
-                  <p>Dashboard</p>
-                </h2>
-                <div className="flex flex-col space-y-1">
-                  <motion.a
-                    href="#"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.6 }}
-                  >
-                    <p>Header</p>
-                  </motion.a>
-                </div>
-              </div>
-            </nav>
-          </motion.aside>
+              </nav>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>

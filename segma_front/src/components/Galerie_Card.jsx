@@ -1,6 +1,7 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons";
-import React from "react";
+import { motion } from "framer-motion"; // ✅ Import motion
 
 const Galerie_Card = ({
   watchImg,
@@ -11,7 +12,14 @@ const Galerie_Card = ({
   numComments,
 }) => {
   return (
-    <div className="h-[328px] w-[384px] rounded-lg bg-white[#F2F3F6] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center justify-center gap-4 relative cursor-pointer">
+    <motion.div
+      className="h-[328px] w-[384px] rounded-lg bg-white[#F2F3F6] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center justify-center gap-4 relative cursor-pointer"
+      initial={{ opacity: 0, y: 50 }}        // Start hidden & pushed down
+      whileInView={{ opacity: 1, y: 0 }}     // Animate in when visible
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: false }}              // Animate only once
+      
+    >
       <img
         className="w-full h-[192px] rounded-t-lg object-cover"
         src={watchImg}
@@ -36,7 +44,7 @@ const Galerie_Card = ({
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
