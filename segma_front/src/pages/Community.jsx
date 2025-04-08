@@ -36,7 +36,7 @@ const Community = () => {
   };
   return (
     <Layout>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col w-full items-center gap-4">
         <div className="h-[564px] w-full flex justify-center items-center relative">
           <div className="w-[831px] flex flex-col items-center  z-10 justify-between gap-4">
             <motion.h1

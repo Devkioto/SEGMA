@@ -10,6 +10,13 @@ import W2 from '../assets/images/W2.png';
 import W3 from '../assets/images/W3.png';
 import W4 from '../assets/images/W4.png';
 import W5 from '../assets/images/W5.png';
+import W6 from '../assets/images/W6.png';
+import W7 from '../assets/images/W7.png';
+import W8 from '../assets/images/W8.png';
+import W9 from '../assets/images/W9.png';
+import W10 from '../assets/images/W10.png';
+import W11 from '../assets/images/W11.png';
+
 
 function Home(props) {
   useEffect(() => {
@@ -92,6 +99,32 @@ function Home(props) {
       name: "Datejust 41",
       price: "$7,550",
     },
+    {
+      img: W6,
+      name: "Oyster Perpetual",
+      price: "$5,000",
+    },
+    {
+      img: W7,
+      name: "Day-Date 40",
+      price: "$12,900",
+    },
+    {
+      img: W8,
+      name: "Sea-Dweller",
+      price: "$11,350",
+    },
+    {
+      img: W9,
+      name: "Yacht-Master",
+      price: "$11,150",
+    },
+    {
+      img: W10,
+      name: "Explorer II",
+      price: "$8,350",
+    },
+
   ];
   return (
     <Layout>
