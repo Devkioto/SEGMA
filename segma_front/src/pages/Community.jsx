@@ -17,19 +17,45 @@ import Forum_Card from "../components/Forum_Card";
 import Community_Section from "../components/Community_Section";
 import Galerie_Card from "../components/Galerie_Card";
 import Event_Card from "../components/Event_Card";
+import { motion } from "framer-motion";
 const Community = () => {
+  
+  const textAnimation = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
     <Layout>
       <div className="flex flex-col items-center gap-4">
         <div className="h-[564px] w-full flex justify-center items-center relative">
           <div className="w-[831px] flex flex-col items-center  z-10 justify-between gap-4">
-            <h1 className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight leading-[1.2]"> 
+            <motion.h1
+              variants={textAnimation}
+              initial="hidden"
+              animate="visible"
+              className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight leading-[1.2]"
+            >
               La Passion de l'Horlogerie
-            </h1>
-            <span className="md:w-[720px] text-[#D1D5DB] text-[20px] text-wrap text-center align-middle">
+            </motion.h1>
+            <motion.span
+              variants={textAnimation}
+              initial="hidden"
+              animate="visible"
+              className="md:w-[720px] text-[#D1D5DB] text-[20px] text-wrap text-center align-middle"
+            >
               Rejoignez notre communauté passionnée de collectionneurs et
               d'amateurs de montres
-            </span>
+            </motion.span>
             <button
               className="w-[287px] h-[62px] mt-8 bg-[rgba(0,0,0,0.6)] cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
               type="button">
@@ -125,3 +151,4 @@ const Community = () => {
 };
 
 export default Community;
+

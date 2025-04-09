@@ -1,8 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Event_Card = ({ date, place, title, description }) => {
   return (
-    <div className="h-[244px] w-[384px] mb-6 flex flex-col items-center justify-center gap-4 bg-white shadow-lg rounded-lg p-4">
+    <motion.div
+      className="h-[244px] w-[384px] mb-6 flex flex-col items-center justify-center gap-4 bg-white shadow-lg rounded-lg p-4"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: false }}
+    >
       <div className="w-[336px] h-[40px] flex justify-between items-center">
         <span className="h-[40px] w-[87px] rounded-lg bg-gray-300 text-[16px] font-bold flex items-center justify-center">
           {date}
@@ -18,8 +25,9 @@ const Event_Card = ({ date, place, title, description }) => {
         type="button">
         S'inscrire
       </button>
-    </div>
+    </motion.div>
   );
 };
 
 export default Event_Card;
+

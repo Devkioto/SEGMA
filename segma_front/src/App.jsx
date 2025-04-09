@@ -4,9 +4,10 @@ import Community from "./pages/Community";
 import Auctions from "./pages/Auctions";
 
 function App() {
+  // UseSmoothScroll();
   return (
-    <Auctions/>
-    // <Community/>
+    // <Auctions/>
+    <Community/>
     // <Home/>
   );
 }
