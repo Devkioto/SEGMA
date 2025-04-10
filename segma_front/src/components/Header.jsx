@@ -45,27 +45,36 @@ function Header() {
     };
   }, [isSidebarOpen]);
 
-  // Handle navbar visibility on scroll and hide after inactivity
+  //! Handle navbar visibility on scroll and hide after inactivity
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Reset the timer if user scrolls
+      // Clear any existing timeout
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }
 
+      // Show or hide navbar based on scroll direction
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
-        setShowNavbar(false); // Hide navbar when scrolling down
+        setShowNavbar(false); // Scrolling down
       } else {
-        setShowNavbar(true); // Show navbar when scrolling up
+        setShowNavbar(true); // Scrolling up or top
       }
 
-      // Set a timeout to hide the navbar after 3 seconds of inactivity
-      scrollTimeout.current = setTimeout(() => {
-        setShowNavbar(false);
-      }, 5000); // Hide after 3 seconds of no scroll
+      // Always show when scrolled to top
+      if (currentScrollY === 0) {
+        setShowNavbar(true);
+      }
 
+      // Start timeout to auto-hide after 5 seconds of inactivity
+      if (currentScrollY > 0) {
+        scrollTimeout.current = setTimeout(() => {
+          setShowNavbar(false);
+        }, 5000);
+      }
+
+      // Update last scroll position
       lastScrollY.current = currentScrollY;
     };
 
@@ -74,17 +83,18 @@ function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current); // Cleanup the timeout on unmount
+        clearTimeout(scrollTimeout.current);
       }
     };
   }, []);
+
 
   return (
     <>
       {/*//! Header */}
       <motion.div
         id="header"
-        className="h-14 bg-white shadow-md fixed w-full top-0 z-50 px-5 flex items-center justify-between"
+        className="h-14 bg-white shadow-md fixed w-full top-0 z-50 px-5 flex items-center justify-between "
         animate={{ y: showNavbar ? 0 : -100 }}
         transition={{ duration: 0.5 }}
       >

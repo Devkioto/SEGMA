@@ -10,6 +10,14 @@ import W2 from '../assets/images/W2.png';
 import W3 from '../assets/images/W3.png';
 import W4 from '../assets/images/W4.png';
 import W5 from '../assets/images/W5.png';
+import W6 from '../assets/images/W6.png';
+import W7 from '../assets/images/W7.png';
+import W8 from '../assets/images/W8.png';
+import W9 from '../assets/images/W9.png';
+import W10 from '../assets/images/W10.png';
+import W11 from '../assets/images/W11.png';
+import { faBellConcierge, faCrow, faCrown, faDiamond, faGem, faGuaraniSign, faPalette, faShieldHalved, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Home(props) {
   useEffect(() => {
@@ -65,7 +73,7 @@ function Home(props) {
       lenis.destroy(); // Destroy Lenis smooth scrolling
     };
   }, []); // Empty dependency array to run only once on mount
-
+  
   const WatchList = [
     {
       img: W1,
@@ -92,7 +100,37 @@ function Home(props) {
       name: "Datejust 41",
       price: "$7,550",
     },
+    {
+      img: W6,
+      name: "Oyster Perpetual",
+      price: "$5,000",
+    },
+    {
+      img: W7,
+      name: "Datejust 41",
+      price: "$7,550",
+    },
+    {
+      img: W8,
+      name: "Datejust 41",
+      price: "$7,550",
+    },
+    {
+      img: W9,
+      name: "Datejust 41",
+      price: "$7,550",
+    },
+    {
+      img: W10,
+      name: "Datejust 41",
+      price: "$7,550",
+    },
+
+
+
+
   ];
+
   return (
     <Layout>
       <>
@@ -102,22 +140,39 @@ function Home(props) {
           <div className="bg-[#00ff00] h-[100vh] section">section 3</div>
 
           <section id="horizontal" className="section">
-            <div className="content">
-              <p>Featured Collections</p>
-              <h1>Exclusive Timepieces</h1>
-              <Watch WatchList={WatchList}  />
+            <div className="content content_1" >
+
+            <Watch WatchList={WatchList} subtitle="Featured Collections" title="Exclusive" />
             </div>
             <div className="content">
-              <p>Content 2</p>
+            <Watch WatchList={WatchList} subtitle="Nouveautés" title="New Arrivals" />
             </div>
             <div className="content">
-              <p>Content 3</p>
+
             </div>
           </section>
         </div>
-        <section className="h-[100vh] w-full bg-[#FACC15]">
-          <h1>Home</h1>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ex praesentium maxime eligendi reprehenderit ea. Ea nihil ipsa molestiae quam doloribus placeat distinctio optio sint ducimus magni nesciunt, quos eum?</p>
+        <section id='features__bottom' className="h-[299px] w-full bg-[#ffffff] flex flex-wrap items-center justify-around">
+            <div className='flex flex-col items-center '>
+              <FontAwesomeIcon icon={faTruckFast} className='text-[#C40D2E] text-[30px]' />
+              <h1 className='text-[20px]'>Livraison Express</h1>
+              <p>Livraison gratuite dans le monde entier</p>
+            </div>
+            <div className='flex flex-col items-center'>
+            <FontAwesomeIcon icon={faShieldHalved } className='text-[#C40D2E] text-[30px]' />
+              <h1 className='text-[20px]'>Garantie 5 Ans</h1>
+              <p>Protection complète de votre investissement</p>
+            </div>
+            <div className='flex flex-col items-center'>
+              <FontAwesomeIcon icon={faCrown} className='text-[#C40D2E] text-[30px]' />
+              <h1 className='text-[20px]'>Authenticite Garantie</h1>
+              <p>Certificat d'authenticité pour chaque montre</p>
+            </div>
+            <div className='flex flex-col items-center'>
+            <FontAwesomeIcon icon={faBellConcierge} className='text-[#C40D2E] text-[30px]' />
+              <h1 className='text-[20px]'>Service VIP</h1>
+              <p>Assistance personnalisée 24/7</p>
+            </div>
         </section>
       </>
     </Layout>
@@ -125,3 +180,4 @@ function Home(props) {
 }
 
 export default Home;
+

@@ -9,6 +9,7 @@ function App() {
   return (
     // <Stream/>
     // <Auctions/>
+    // <Auctions/>
     // <Community/>
     <Home/>
   );
