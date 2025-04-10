@@ -5,6 +5,7 @@ import auctionImg2 from "../assets/images/auction2.jpg";
 import Active_showBtn from "../components/Active_showBtn";
 import Auction_Show from "../components/Auction_Show";
 import auctionSimg from "../assets/images/auction_Simg.png";
+import auctionSimg2 from "../assets/images/auction2.jpg";
 import Auction_Card from "../components/Auction_Card";
 
 const Auctions = () => {
@@ -215,7 +216,7 @@ const Auctions = () => {
                 Verified={true}
               />
                <Auction_Card
-                imgAuction={auctionSimg}
+                imgAuction={auctionSimg2}
                 titleAuction="Rolex Submariner"
                 CBid={23.456}
                 Time={{ heure: "12", minute: "20" }}
