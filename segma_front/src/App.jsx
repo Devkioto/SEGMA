@@ -7,8 +7,8 @@ function App() {
   // UseSmoothScroll();
   return (
     // <Auctions/>
-    <Community/>
-    // <Home/>
+    // <Community/>
+    <Home/>
   );
 }
 

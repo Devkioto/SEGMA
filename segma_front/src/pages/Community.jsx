@@ -60,8 +60,6 @@ const Community = () => {
               className="w-[287px] h-[62px] bg-black cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
               type="button"
             >
-              className="w-[287px] h-[62px] mt-8 bg-[rgba(0,0,0,0.6)] cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
-              type="button">
               Rejoindre la communauté
             </button>
           </div>

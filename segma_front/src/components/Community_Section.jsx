@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Community_Section = ({ sectionTitle, sectionDescription, children }) => {
   return (
     <motion.div
-      className="min-h-[312px] w-full flex flex-col gap-4 items-center my-4"
+      // className="min-h-[312px] w-full flex flex-col gap-4 items-center my-4"
       className="min-h-[312px] w-full flex flex-col gap-4 items-center justify-around my-4"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
