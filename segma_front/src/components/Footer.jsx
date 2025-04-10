@@ -23,7 +23,7 @@ const container = {
 function Footer() {
   return (
     <motion.div
-      className="h-[400px]  pl-[92px] pr-[92px] md:h-[370px] col-span-8 row-start-5 flex flex-col px-[32px] bg-[#E5E7EB] text-[#C40D2E] font-site-font items-center justify-center" // Changed font and height
+      className=" md:h-(--footer-height) col-span-8 row-start-5 flex flex-col px-[32px] bg-[#E5E7EB] text-[#C40D2E] font-site-font items-center justify-center" // Changed font and height
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.2 }}

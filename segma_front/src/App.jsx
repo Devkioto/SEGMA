@@ -1,18 +1,14 @@
 import "./App.css";
 import Home from "./pages/Home";
 import Community from "./pages/Community";
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
-// import UseSmoothScroll from "./components/UseSmoothScroll";
+import Auctions from "./pages/Auctions";
+
 function App() {
   // UseSmoothScroll();
   return (
-    <>
-    {/* <UseSmoothScroll/> */}
-    {/* <Community/> */}
-    <Home/>
-
-    </>
+    // <Auctions/>
+    <Community/>
+    // <Home/>
   );
 }
 

@@ -20,7 +20,3 @@ body {
   font-family: var(--site-font); /* Apply the custom font globally */
 }
 
-/* Example for using footer height in Tailwind */
-.footer {
-  height: var(--footer-height); /* Using the custom variable for footer height */
-}
