@@ -7,10 +7,10 @@ import Stream from "./pages/Stream";
 function App() {
   // UseSmoothScroll();
   return (
-    <Stream/>
+    // <Stream/>
     // <Auctions/>
     // <Community/>
-    // <Home/>
+    <Home/>
   );
 }
 
