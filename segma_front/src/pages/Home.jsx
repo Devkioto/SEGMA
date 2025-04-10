@@ -106,24 +106,31 @@ function Home(props) {
     },
     {
       img: W7,
-      name: "Day-Date 40",
-      price: "$12,900",
+      name: "Datejust 41",
+      price: "$7,550",
     },
     {
       img: W8,
-      name: "Sea-Dweller",
-      price: "$11,350",
+      name: "Datejust 41",
+      price: "$7,550",
     },
     {
       img: W9,
-      name: "Yacht-Master",
-      price: "$11,150",
+      name: "Datejust 41",
+      price: "$7,550",
     },
     {
       img: W10,
-      name: "Explorer II",
-      price: "$8,350",
+      name: "Datejust 41",
+      price: "$7,550",
     },
+    {
+      img: W11,
+      name: "Datejust 41",
+      price: "$7,550",
+    },
+
+
 
   ];
   return (
@@ -135,9 +142,8 @@ function Home(props) {
           <div className="bg-[#00ff00] h-[100vh] section">section 3</div>
 
           <section id="horizontal" className="section">
-            <div className="content">
-              <p>Featured Collections</p>
-              <h1>Exclusive Timepieces</h1>
+            <div className="content content_1" >
+
               <Watch WatchList={WatchList}  />
             </div>
             <div className="content">

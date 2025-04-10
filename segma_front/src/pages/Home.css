@@ -28,3 +28,25 @@ body::-webkit-scrollbar {
 .content:nth-child(3) {
     background-color: rgb(228, 255, 73);
 }
+@media screen and (max-width: 767px) {
+    #container__horizontal #horizontal .content_1 img {
+        width: 150px;
+        height: auto;
+        object-fit: contain;
+    }
+   #container__horizontal #horizontal .content_1 p:nth-child(1){
+       font-size: 14px;
+       margin-top: 10px;
+       text-align: center;
+       color: red;
+   }
+   #Watch__exclusive {
+    justify-content: center;
+   }
+   #Watch__exclusive > *:nth-child(7n+6) {
+       display: none;
+   }
+}
+#Watch__exclusive{
+    padding: 0px 60px;
+}
