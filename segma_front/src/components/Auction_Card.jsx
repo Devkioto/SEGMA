@@ -9,7 +9,7 @@ const Auction_Card = ({
   Verified = false,
 }) => {
   return (
-    <div className="h-[432px] w-full md:w-[270px] flex flex-col justify-between bg-white rounded-lg shadow-sm overflow-hidden">
+    <div className="h-[432px] w-full md:w-[300px]  flex flex-col justify-between bg-white rounded-lg shadow-sm overflow-hidden">
       <div className="w-full h-[192px]">
         <img
           className=" w-full h-full inset-0 object-cover object-center"

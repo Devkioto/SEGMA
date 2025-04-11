@@ -26,14 +26,14 @@ const Stream = () => {
             <Stream_Info infoKey={"Current Bid"} infoValue={"$185,000"} />
             <Stream_Info infoKey={"Total Bids"} infoValue={"47"} />
             <Stream_Info infoKey={"Time Left"} infoValue={"12:45"} />
-            <div className="w-full flex flex-col md:flex-row gap-1 md:justify-between items-center">
+            <div className="w-full  flex flex-col md:flex-row  items-center gap-1.5">
               <input
-                className=" w-full md:w-[260px] h-[42px] text-[16px] text-[#6B7280] ps-1.5 rounded-md border-[2px] border-[#D1D5DB] focus:outline-none focus:border-[#C40D2E]"
+                className="w-full grow h-[42px] ps-4 bg-white  text-md text-[#6B7280] rounded-sm border-[2px] border-[#D1D5DB] focus:outline-none focus:border-[#C40D2E]"
                 type="text"
                 placeholder="Enter bid amount"
               />
               <button
-                className=" w-full md:w-[130px] h-[42px] rounded-sm text-white bg-[#C40D2E] cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-[#C40D2E]"
+                className="w-full md:w-[120px] h-[42px] flex-none rounded-sm px-6 py-2 bg-[#C40D2E] text-[16px] text-white font-semibold cursor-pointer focus:outline-2 focus:outline-offset-2 focus:outline-[#C40D2E]"
                 type="button">
                 Place Bid
               </button>
@@ -43,13 +43,13 @@ const Stream = () => {
         <div className="w-full  mb-6 flex flex-col gap-3 ">
           <h3 className="text-[20px] font-semibold gap-2">live chat</h3>
           <div className="w-full h-[300px] flex flex-col gap-2.5 p-4 overflow-hidden rounded-lg bg-white shadow-xl overflow-y-auto ">
-          <Stream_Message img={userImg}/>
-          <Stream_Message img={userImg}/>
-          <Stream_Message img={userImg}/>
-          <Stream_Message img={userImg}/>
-          <Stream_Message img={userImg}/>
-          <Stream_Message img={userImg}/>
-          <Stream_Message img={userImg}/>
+            <Stream_Message img={userImg} />
+            <Stream_Message img={userImg} />
+            <Stream_Message img={userImg} />
+            <Stream_Message img={userImg} />
+            <Stream_Message img={userImg} />
+            <Stream_Message img={userImg} />
+            <Stream_Message img={userImg} />
           </div>
           <div className="w-full h-[42px] flex items-center gap-1.5">
             <input

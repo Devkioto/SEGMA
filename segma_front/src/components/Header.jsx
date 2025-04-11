@@ -124,7 +124,7 @@ function Header() {
         </div>
 
         {/* Center Nav */}
-        <ul className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex gap-6 text-[#C40D2E] text-sm font-semibold items-center">
+        <ul className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-6 text-[#C40D2E] text-sm font-semibold items-center">
           <li><a href="#" className="hover:underline">About Us</a></li>
           <li><a href="#" className="hover:underline">Catalogue</a></li>
           <li><a href="#"><img className="h-8" src={segma_logo} alt="Logo" /></a></li>

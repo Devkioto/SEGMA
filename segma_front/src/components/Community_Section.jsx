@@ -18,7 +18,7 @@ const Community_Section = ({ sectionTitle, sectionDescription, children }) => {
           {sectionDescription}
         </p>
       </div>
-      <div className="w-6/7 flex flex-wrap justify-center items-center gap-8">
+      <div className="w-6/7 md:w-7/7  flex flex-wrap justify-center items-center gap-8">
         {children}
       </div>
     </motion.div>

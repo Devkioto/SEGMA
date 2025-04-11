@@ -7,8 +7,8 @@ import Stream from "./pages/Stream";
 function App() {
   // UseSmoothScroll();
   return (
-    <Stream/>
-    // <Auctions/>
+    // <Stream/>
+    <Auctions/>
     // <Community/>
     // <Home/>
   );
