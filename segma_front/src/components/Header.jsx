@@ -11,6 +11,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import "../components/Header.css";
 import segma_logo from "../assets/images/segma_logo.png";
+import Header_Link from "./Header_Link";
 
 function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -33,15 +34,15 @@ function Header() {
 
     if (isSidebarOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'hidden'; // Disable scrolling
+      document.body.style.overflow = "hidden"; // Disable scrolling
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'auto'; // Enable scrolling
+      document.body.style.overflow = "auto"; // Enable scrolling
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = 'auto'; // Ensure scrolling is re-enabled
+      document.body.style.overflow = "auto"; // Ensure scrolling is re-enabled
     };
   }, [isSidebarOpen]);
 
@@ -88,7 +89,6 @@ function Header() {
     };
   }, []);
 
-
   return (
     <>
       {/*//! Header */}
@@ -96,21 +96,18 @@ function Header() {
         id="header"
         className="h-14 bg-white shadow-md fixed w-full top-0 z-50 px-5 flex items-center justify-between "
         animate={{ y: showNavbar ? 0 : -100 }}
-        transition={{ duration: 0.5 }}
-      >
+        transition={{ duration: 0.5 }}>
         {/* Left Side */}
         <div className="flex items-center gap-4 mr-2 ">
           <motion.button
             className="text-[#C40D2E] text-xl cursor-pointer"
-            onClick={toggleSidebar}
-          >
+            onClick={toggleSidebar}>
             <motion.div
               animate={{
                 rotate: isSidebarOpen ? 180 : 0,
                 scale: isSidebarOpen ? 1.2 : 1,
               }}
-              transition={{ duration: 0.3 }}
-            >
+              transition={{ duration: 0.3 }}>
               <FontAwesomeIcon
                 className="w-6 h-6"
                 icon={isSidebarOpen ? "" : faBars}
@@ -125,11 +122,13 @@ function Header() {
 
         {/* Center Nav */}
         <ul className="absolute left-1/2 transform -translate-x-1/2 hidden lg:flex gap-6 text-[#C40D2E] text-sm font-semibold items-center">
-          <li><a href="#" className="hover:underline">About Us</a></li>
-          <li><a href="#" className="hover:underline">Catalogue</a></li>
-          <li><a href="#"><img className="h-8" src={segma_logo} alt="Logo" /></a></li>
-          <li><a href="#" className="hover:underline">Auctions</a></li>
-          <li><a href="#" className="hover:underline">Community</a></li>
+          <Header_Link children="About Us" linkTo="/about_us" />
+          <Header_Link children="Catalogue" linkTo="/catalogue" />
+          <Header_Link linkTo="/">
+            <img className="h-8" src={segma_logo} alt="Logo" />
+          </Header_Link>
+          <Header_Link children="Auctions" linkTo="/auctions" />
+          <Header_Link children="Community" linkTo="/community" />
         </ul>
 
         {/* Right Side */}
@@ -167,9 +166,10 @@ function Header() {
                 position: "fixed",
                 right: "0px",
                 top: "60px",
-                transition: "opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1), height, visibility, z-index",
+                transition:
+                  "opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1), height, visibility, z-index",
                 userSelect: "none",
-                zIndex: 960
+                zIndex: 960,
               }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -182,13 +182,11 @@ function Header() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.3 }}
-              className="w-full h-screen sm:w-85 bg-white fixed z-960 top-14 p-6 shadow-md"
-            >
+              className="w-full h-screen sm:w-85 bg-white fixed z-960 top-14 p-6 shadow-md">
               <div className="flex justify-end">
                 <button
                   onClick={toggleSidebar}
-                  className="text-[#C40D2E] text-2xl cursor-pointer"
-                >
+                  className="text-[#C40D2E] text-2xl cursor-pointer">
                   <FontAwesomeIcon icon={faTimes} />
                 </button>
               </div>
@@ -198,14 +196,19 @@ function Header() {
                     Getting Started
                   </h2>
                   <div className="flex flex-col space-y-1">
-                    {["Installation", "Plugins", "Migrations", "Appearance", "Mamba UI"].map((item, i) => (
+                    {[
+                      "Installation",
+                      "Plugins",
+                      "Migrations",
+                      "Appearance",
+                      "Mamba UI",
+                    ].map((item, i) => (
                       <motion.a
                         key={item}
                         href="#"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}
-                      >
+                        transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}>
                         {item}
                       </motion.a>
                     ))}
@@ -221,8 +224,7 @@ function Header() {
                       href="#"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.6 }}
-                    >
+                      transition={{ duration: 0.3, delay: 0.6 }}>
                       Header
                     </motion.a>
                   </div>
