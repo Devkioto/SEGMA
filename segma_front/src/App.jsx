@@ -6,9 +6,9 @@ import Auctions from "./pages/Auctions";
 function App() {
   // UseSmoothScroll();
   return (
-    // <Auctions/>
+    <Auctions/>
     // <Community/>
-    <Home/>
+    // <Home/>
   );
 }
 
