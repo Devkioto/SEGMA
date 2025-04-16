@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../components/Layout';
 import './Home.css';
 import RolexWatch from '../assets/images/RolexWatch.png';
+import {Link} from 'react-router-dom';
 import Watch from '../components/Watch';
 import W1 from '../assets/images/W1.png';
 import W2 from '../assets/images/W2.png';
@@ -16,12 +17,40 @@ import W7 from '../assets/images/W7.png';
 import W8 from '../assets/images/W8.png';
 import W9 from '../assets/images/W9.png';
 import W10 from '../assets/images/W10.png';
-import W11 from '../assets/images/W11.png';
+import { TweenMax, Power4 } from 'gsap';
+import { motion } from 'framer-motion';
 import { faBellConcierge, faCrow, faCrown, faDiamond, faGem, faGuaraniSign, faPalette, faShieldHalved, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Model from './Model';
+import Watchbit from '../components/Watchbit';
 function Home(props) {
   useEffect(() => {
+    // magnetic 
+    var magnets = document.querySelectorAll('.magnetic');
+magnets.forEach((magnet) => {
+  const isHeading = magnet.querySelector('h2');
+  const thisStrength = isHeading ? 30 : 50; // Less aggressive for headings
+
+  magnet.addEventListener('mousemove', function (event) {
+    moveMagnet(event, thisStrength);
+  });
+
+  magnet.addEventListener('mouseout', function (event) {
+    TweenMax.to(event.currentTarget, 0.5, { x: 0, y: 0, ease: Power4.easeOut });
+  });
+});
+
+function moveMagnet(event, strength) {
+  var magnetButton = event.currentTarget;
+  var bounding = magnetButton.getBoundingClientRect();
+
+  TweenMax.to(magnetButton, 0.5, {
+    x: ((event.clientX - bounding.left) / magnetButton.offsetWidth - 0.5) * strength,
+    y: ((event.clientY - bounding.top) / magnetButton.offsetHeight - 0.5) * strength,
+    ease: Power4.easeOut,
+  });
+}
+
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
       lerp: 0.1, // Adjust smoothness
@@ -73,7 +102,46 @@ function Home(props) {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Kill all GSAP scroll triggers
       lenis.destroy(); // Destroy Lenis smooth scrolling
     };
+
   }, []); // Empty dependency array to run only once on mount
+  const fakeWatchList = [
+    {
+      name: 'Rolex Submariner',
+      img: W1,
+      currentBid: '150,000$',
+      timeLeft: '2h 30m',
+    },
+    {
+      name: 'Omega Speedmaster',
+      img: W2,
+      currentBid: '98,500$',
+      timeLeft: '1h 15m',
+    },
+    {
+      name: 'Audemars Piguet Royal Oak',
+      img: W3,
+      currentBid: '220,000$',
+      timeLeft: '4h 5m',
+    },
+    {
+      name: 'Patek Philippe Nautilus',
+      img: W4,
+      currentBid: '310,000$',
+      timeLeft: '6h 42m',
+    },
+    {
+      name: 'Tag Heuer Carrera',
+      img: W5,
+      currentBid: '60,000$',
+      timeLeft: '3h 20m',
+    },
+    {
+      name: 'Hublot Big Bang',
+      img: W7,
+      currentBid: '125,000$',
+      timeLeft: '5h 10m',
+    },
+  ];
   
   const WatchList = [
     {
@@ -131,24 +199,56 @@ function Home(props) {
 
 
   ];
+  
 
   return (
     <Layout>
       <>
         <div id="container__horizontal">
-          <div className='bg-[#94f95e] h-[100vh] section'></div>
-          <div className="bg-[#7571fb] h-[100vh]  section"></div>
-          <div className="h-[100vh] bg-[#fc7171] section flex flex-row items-center px-20">
-            <div className="flex-1 text-center mt-0">
-              <h1 className="text-3xl font-bold">Exclusive Rolex Collection</h1>
-              <p className="text-lg text-gray-700">Discover the elegance of Rolex watches</p>
-              <button></button>
-            </div>
-            <div className="flex-1 flex items-center justify-center">
+          <div className='bg-[#94f95e] h-[200vh] section'></div>
 
-              <Model className="max-w-all h-auto" />
+
+            <div className="bg-[#F5F5F5]  h-[100vh] flex items-center gap-8 justify-center flex-wrap " id='model__section'>         
+            <div className="md:max-w-[500px]" id='model__section__second'>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      >
+                        <p className="text-4xl rainbow-text font-bold pb-4">
+                          The Rolex Daytona Rainbow Rose Gold
+                        </p>
+                      </motion.div>
+                      <p className='mb-4'>
+                        A bold blend of precision and flamboyance. Crafted in Everose gold, it stuns with a bezel set with
+                        rainbow-colored sapphires and diamond hour markers. A true collector’s dream, it merges iconic
+                        Daytona performance with dazzling, head-turning luxury.
+                      </p>
+
+                   
+                    <Link to="/model">
+                      <div className="magnetic inline-block">
+                        <h2 className="text-1xl font-bold mb-4 text-[#C40D2E]  border-[#C40D2E] border-[2px]  p-2 rounded-[10px]">
+                          View 3D Model
+                        </h2>
+                      </div>
+                    </Link>
+                  </div>
+                  
+                  
+                  <motion.div
+                    initial={{ x: 50 , opacity: 0 }}
+                    whileInView={{ x: 0 , opacity: 1 }}
+                   
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="md:max-w-[500px] align-center items-center flex flex-col user-select-none"  
+                    id='model__section__first'
+                  >
+                    <img src={RolexWatch} alt="" className=" h-auto w-auto user-select-none " />
+                  </motion.div>
+                  
             </div>
-          </div>
+
 
 
           <section id="horizontal" className="section">
@@ -160,7 +260,11 @@ function Home(props) {
             <Watch WatchList={WatchList} subtitle="Nouveautés" title="New Arrivals" />
             </div>
             <div className="content">
-
+            <Watchbit
+  WatchList={fakeWatchList}
+  title="Exclusive Auctions"
+  subtitle="Limited Edition Watches"
+/>
             </div>
           </section>
         </div>

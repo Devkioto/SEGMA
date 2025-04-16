@@ -33,6 +33,8 @@ const Community = () => {
       },
     },
   };
+
+
   return (
     <Layout>
       <div className="flex flex-col w-full items-center gap-4">
@@ -59,9 +61,9 @@ const Community = () => {
               Rejoindre la communauté
             </button>
           </div>
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 animate-pulse dark:bg-gray-700">
             <img
-              className="h-full w-full object-cover brightness-50"
+              className="h-full w-full object-cover brightness-50  "
               src={img_community}
               alt=""
             />
