@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../components/Layout';
 import './Home.css';
+import RolexWatch from '../assets/images/RolexWatch.png';
 import Watch from '../components/Watch';
 import W1 from '../assets/images/W1.png';
 import W2 from '../assets/images/W2.png';
@@ -18,7 +19,7 @@ import W10 from '../assets/images/W10.png';
 import W11 from '../assets/images/W11.png';
 import { faBellConcierge, faCrow, faCrown, faDiamond, faGem, faGuaraniSign, faPalette, faShieldHalved, faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import Model from './Model';
 function Home(props) {
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
@@ -135,9 +136,20 @@ function Home(props) {
     <Layout>
       <>
         <div id="container__horizontal">
-          <div className="bg-[#1765ff] h-[100vh] section">section 1</div>
-          <div className="bg-[#ff1717] h-[100vh] section">section 2</div>
-          <div className="bg-[#00ff00] h-[100vh] section">section 3</div>
+          <div className='bg-[#94f95e] h-[100vh] section'></div>
+          <div className="bg-[#7571fb] h-[100vh]  section"></div>
+          <div className="h-[100vh] bg-[#fc7171] section flex flex-row items-center px-20">
+            <div className="flex-1 text-center mt-0">
+              <h1 className="text-3xl font-bold">Exclusive Rolex Collection</h1>
+              <p className="text-lg text-gray-700">Discover the elegance of Rolex watches</p>
+              <button></button>
+            </div>
+            <div className="flex-1 flex items-center justify-center">
+
+              <Model className="max-w-all h-auto" />
+            </div>
+          </div>
+
 
           <section id="horizontal" className="section">
             <div className="content content_1" >
