@@ -9,7 +9,7 @@ const Auction_Card = ({
   Verified = false,
 }) => {
   return (
-    <div className="h-[432px] w-full md:w-[270px] flex flex-col justify-between bg-white rounded-lg shadow-sm overflow-hidden">
+    <div className="h-[432px] w-full md:w-[300px]  flex flex-col justify-between bg-white rounded-sm shadow-sm overflow-hidden">
       <div className="w-full h-[192px]">
         <img
           className=" w-full h-full inset-0 object-cover object-center"
@@ -18,7 +18,7 @@ const Auction_Card = ({
         />
       </div>
       <div className="w-full  flex flex-col items-center justify-between p-4 ">
-        <div className="w-full h-[28px] mb-1.5 flex items-center gap-2">
+        <div className="w-full h-[28px] mb-1.5 flex items-center justify-between gap-2">
           <h3 className="text-[18px] font-bold">{titleAuction}</h3>
           <span
             className={` h-full flex-none flex items-center justify-center px-2 py-1 ${
@@ -43,7 +43,7 @@ const Auction_Card = ({
             <span className="font-semibold ">{NBids}</span>
           </div>
           <button
-            className="w-[206px] h-[40px] mx-auto rounded-sm bg-[#C40D2E] text-white text-[16px] font-meduim"
+            className="w-[206px] h-[40px] mx-auto rounded-xs bg-[#C40D2E] text-white text-[16px] font-meduim cursor-pointer"
             type="button">
             Join Now
           </button>

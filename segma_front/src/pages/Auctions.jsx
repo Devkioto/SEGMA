@@ -60,8 +60,8 @@ const Auctions = () => {
             activeIndex={activeIndex}
           />
         </div>
-        <div className=" w-full h-full mb-6 flex flex-wrap lg:flex-nowrap justify-center gap-8 ">
-          <div className="h-5/6 w-[256px] md:w-1/5 p-6 bg-white rounded-lg shadow-md ">
+        <div className=" w-full h-full mb-6 flex flex-wrap lg:flex-nowrap justify-center gap-6">
+          <div className="h-5/6 w-full lg:w-2/8 p-6 bg-white rounded-sm shadow-md ">
             <h3 className=" text-[18px] font-bold mb-4">Filters</h3>
             <div className="flex flex-col  gap-4 ">
               <div className="flex  flex-col items-center gap-2.5">
@@ -167,7 +167,7 @@ const Auctions = () => {
               </div>
             </div>
           </div>
-          <div className="w-5/5  flex flex-col gap-4">
+          <div className="w-full  flex flex-col gap-4">
             <div className="flex gap-2">
               <label
                 className="h-full flex items-center text-[16px] text-[#4B5563] "
@@ -183,7 +183,7 @@ const Auctions = () => {
                 </option>
               </select>
             </div>
-            <div className="h-full flex justify-between items-center  flex-wrap gap-2">
+            <div className="h-full flex  items-center md:justify-center lg:justify-start flex-wrap gap-4 ">
               <Auction_Card
                 imgAuction={auctionSimg}
                 titleAuction="Rolex Submariner"

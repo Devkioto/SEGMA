@@ -19,7 +19,6 @@ import Galerie_Card from "../components/Galerie_Card";
 import Event_Card from "../components/Event_Card";
 import { motion } from "framer-motion";
 const Community = () => {
-  
   const textAnimation = {
     hidden: {
       opacity: 0,
@@ -43,23 +42,20 @@ const Community = () => {
               variants={textAnimation}
               initial="hidden"
               animate="visible"
-              className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight leading-[1.2]"
-            >
+              className="md:w-[767px] text-wrap text-[#FACC15] text-[64px] text-center align-middle font-meduim tracking-tight leading-[1.2]">
               La Passion de l'Horlogerie
             </motion.h1>
             <motion.span
               variants={textAnimation}
               initial="hidden"
               animate="visible"
-              className="md:w-[720px] text-[#D1D5DB] text-[20px] text-wrap text-center align-middle"
-            >
+              className="md:w-[720px] text-[#D1D5DB] text-[20px] text-wrap text-center align-middle">
               Rejoignez notre communauté passionnée de collectionneurs et
               d'amateurs de montres
             </motion.span>
             <button
-              className="w-[287px] h-[62px] bg-black cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
-              type="button"
-            >
+              className="w-[287px] h-[62px] mt-6  bg-[rgb(0,0,0,0.4)] hover:bg-[rgb(0,0,0,0.6)] transition-colors cursor-pointer  rounded-md text-center text-[18px] text-white font-meduim"
+              type="button">
               Rejoindre la communauté
             </button>
           </div>
@@ -152,4 +148,3 @@ const Community = () => {
 };
 
 export default Community;
-
