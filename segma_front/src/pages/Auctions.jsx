@@ -4,7 +4,7 @@ import auctionImg from "../assets/images/auction.png";
 import auctionImg2 from "../assets/images/auction2.jpg";
 import Active_showBtn from "../components/Active_showBtn";
 import Auction_Show from "../components/Auction_Show";
-import auctionSimg from "../assets/images/auction_Simg.png";
+import auctionSimg from "../assets/images/auction_SimgO.webp";
 import auctionSimg2 from "../assets/images/auction2.jpg";
 import Auction_Card from "../components/Auction_Card";
 

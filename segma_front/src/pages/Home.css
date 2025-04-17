@@ -97,9 +97,40 @@ body::-webkit-scrollbar {
         font-size: 10px;
         
     }
+    /* model__section */
+    #model__section #model__section__first{
+        width: 60%;
+        margin: auto;
+
+
+    }
+    #model__section #model__section__second{
+        width: 80%;
+        margin: auto;
+    }
+    
 }
-
-
+.rainbow-text {
+    background: linear-gradient(
+      90deg,
+      #ff0000,
+      #ff9900,
+      #33cc33,
+      #3399ff,
+      #9933ff,
+      #ff3399
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .magnetic {
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  
 
 
 

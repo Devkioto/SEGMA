@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
-import img_community from "../assets/images/community_show.png";
-import watchG from "../assets/images/watch_g.png";
+// import img_community from "../assets/images/community_show.png";
+import img_community from "../assets/images/community_show_optimized.webp";
 import watchG2 from "../assets/images/watch_g1.png";
 import watchG3 from "../assets/images/watch_g2.png";
 import pers from "../assets/images/pers.png";
@@ -33,6 +33,8 @@ const Community = () => {
       },
     },
   };
+
+
   return (
     <Layout>
       <div className="flex flex-col w-full items-center gap-4">
@@ -61,7 +63,7 @@ const Community = () => {
           </div>
           <div className="absolute inset-0">
             <img
-              className="h-full w-full object-cover brightness-50"
+              className="h-full w-full object-cover brightness-50  "
               src={img_community}
               alt=""
             />
@@ -96,7 +98,7 @@ const Community = () => {
           sectionTitle="Galerie des Membres"
           sectionDescription="Découvrez les collections de nos membres">
           <Galerie_Card
-            watchImg={watchG}
+            watchImg={watchG2}
             ownerImg={pers}
             title="Rolex Submariner"
             ownerName="Jean Dupont"

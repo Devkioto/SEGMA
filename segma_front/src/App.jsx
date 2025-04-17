@@ -2,13 +2,16 @@ import "./App.css";
 import Home from "./pages/Home";
 import Community from "./pages/Community";
 import Auctions from "./pages/Auctions";
-import Stream from "./pages/Stream";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScroolToTop";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
+import Model from "./pages/Model";
+import Stream from "./pages/Stream";
 
 function App() {
+  
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -18,12 +21,15 @@ function App() {
         <Route path="/Auctions" element={<Auctions />} >
           <Route path=":id" element={<Stream />} />
         </Route>
+        <Route path="/model" element={<Model/>} />
         {/* <Route path="/catalogue" element={<Catalogue/>} /> */}
         <Route path="/about_us" element={<AboutUs/>} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
+    
+
   );
 }
 
