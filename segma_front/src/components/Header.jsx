@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../components/Header.css";
 import segma_logo from "../assets/images/segma_logo.png";
 import Header_Link from "./Header_Link";
+import SideMenu_Link from "./SideMenu_Link";
 
 function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -94,7 +95,7 @@ function Header() {
       {/*//! Header */}
       <motion.div
         id="header"
-        className="h-14 bg-white shadow-md fixed w-full top-0 z-50 px-5 flex items-center justify-between "
+        className="h-14 bg-white shadow-md fixed w-full top-0 z-50 px-5 flex items-center justify-between select-none "
         animate={{ y: showNavbar ? 0 : -100 }}
         transition={{ duration: 0.5 }}>
         {/* Left Side */}
@@ -132,8 +133,8 @@ function Header() {
         </ul>
 
         {/* Right Side */}
-        <div className="flex items-center gap-4 pr-4">
-          <div className="relative w-full md:w-40">
+        <div className="grow lg:grow-0 flex items-center gap-4 pr-4">
+          <div className="ms-2.5 grow relative w-full md:w-40">
             <input
               type="text"
               placeholder="Search..."
@@ -182,7 +183,7 @@ function Header() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.3 }}
-              className="w-full h-screen sm:w-85 bg-white fixed z-960 top-14 p-6 shadow-md">
+              className="w-full h-screen sm:w-85 bg-white fixed z-960 top-14 p-6 shadow-md select-none">
               <div className="flex justify-end">
                 <button
                   onClick={toggleSidebar}
@@ -192,31 +193,24 @@ function Header() {
               </div>
               <nav className="space-y-8 text-sm">
                 <div className="space-y-2">
-                  <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600">
-                    Getting Started
+                  <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600 cursor-default">
+                  Segma spaces
                   </h2>
                   <div className="flex flex-col space-y-1">
                     {[
-                      "Installation",
-                      "Plugins",
-                      "Migrations",
-                      "Appearance",
-                      "Mamba UI",
+                     [ "Home","/"],
+                      ["Catalogue","/ctalogue"],
+                      ["Auctions","/auctions"],
+                      ["Community","/community"],
+                      ["About Us","/about_us"],
                     ].map((item, i) => (
-                      <motion.a
-                        key={item}
-                        href="#"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}>
-                        {item}
-                      </motion.a>
+                      <SideMenu_Link linkKey={i} linkName={item[0]} linkTo={item[1]}/>
                     ))}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600">
+                  <h2 className="text-sm font-semibold tracking-widest uppercase text-gray-600 cursor-default">
                     Dashboard
                   </h2>
                   <div className="flex flex-col space-y-1">

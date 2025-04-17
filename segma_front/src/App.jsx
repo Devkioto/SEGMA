@@ -6,6 +6,7 @@ import Stream from "./pages/Stream";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScroolToTop";
 import NotFound from "./pages/NotFound";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -14,9 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/community" element={<Community />} />
-        <Route path="/Auctions" element={<Auctions />} />
+        <Route path="/Auctions" element={<Auctions />} >
+          <Route path=":id" element={<Stream />} />
+        </Route>
         {/* <Route path="/catalogue" element={<Catalogue/>} /> */}
-        {/* <Route path="/about_us" element={<AboutUs/>} /> */}
+        <Route path="/about_us" element={<AboutUs/>} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
